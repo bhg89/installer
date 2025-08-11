@@ -44,6 +44,5 @@ cat >/root/hestia.txt <<EOL
 Панель: http://$SERVER_IP:8083
 Логин: admin
 Пароль: $PASSWORD
-...
 EOL
 cat /root/hestia.txt
