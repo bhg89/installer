@@ -34,5 +34,6 @@ bash hst-install.sh \
     --force \
 
 echo "Панель: $SERVER_IP:8083"
+echo "admin"
 echo "Пароль:" $PASSWORD
 echo $HOSTNAME
