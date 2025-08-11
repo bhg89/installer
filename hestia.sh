@@ -32,17 +32,19 @@ bash hst-install.sh \
 	--email admin@mail.com \
 	--password $PASSWORD \
     --force \
-
-log "Панель установлена, данные для входа сохранены в /root/hestia.txt"
-log "=================================================================="
-echo "Панель: http://$SERVER_IP:8083"
-echo "Логин: admin"
-echo "Пароль:" $PASSWORD
-log "=================================================================="
-log "Перезагрузите сервер командой reboot или в панели управления VPS"
+	
+log "Создание файла /root/hestia.txt"
 cat >/root/hestia.txt <<EOL
 Панель: http://$SERVER_IP:8083
 Логин: admin
 Пароль: $PASSWORD
 EOL
 cat /root/hestia.txt
+
+log "Панель установлена, данные для входа сохранены в /root/hestia.txt"
+echo "=================================================================="
+echo "Панель: http://$SERVER_IP:8083"
+echo "Логин: admin"
+echo "Пароль:" $PASSWORD
+echo "=================================================================="
+log "Перезагрузите сервер командой reboot или в панели управления VPS"
