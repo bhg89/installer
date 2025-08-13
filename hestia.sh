@@ -15,7 +15,7 @@ if [[ $EUID -ne 0 ]]; then
    error "Скрипт должен быть запущен от root"
 fi
 
-sudo apt install \
+sudo apt install -y \
   apache2 \
   php-fpm \
   vsftpd \
@@ -26,7 +26,7 @@ sudo apt install \
   clamav clamav-daemon \
   spamassassin \
   iptables \
-  fail2ban -y
+  fail2ban
 
 log "Скачивание hestia..."
 /usr/bin/wget https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh|| error "Не удалось скачать Hestia"
