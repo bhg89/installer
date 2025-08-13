@@ -26,7 +26,7 @@ sudo apt install \
   clamav clamav-daemon \
   spamassassin \
   iptables \
-  fail2ban
+  fail2ban -y
 
 log "Скачивание hestia..."
 /usr/bin/wget https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh|| error "Не удалось скачать Hestia"
