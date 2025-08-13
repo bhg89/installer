@@ -15,18 +15,12 @@ if [[ $EUID -ne 0 ]]; then
    error "Скрипт должен быть запущен от root"
 fi
 
-sudo apt install -y \
-  apache2 \
-  php-fpm \
-  vsftpd \
-  bind9 bind9utils \
-  mariadb-server \
-  exim4 \
-  dovecot-core dovecot-imapd dovecot-pop3d \
-  clamav clamav-daemon \
-  spamassassin \
-  iptables \
-  fail2ban
+log "Установка необходимых пакетов..."
+/usr/bin/apt update -y || error "Ошибка установки пакетов"
+
+sudo apt purge needrestart -y
+
+sudo apt install php-fpm vsftpd bind9 bind9utils dovecot-core dovecot-imapd dovecot-pop3d clamav clamav-daemon spamassassin iptables fail2ban -y
 
 log "Скачивание hestia..."
 /usr/bin/wget https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh|| error "Не удалось скачать Hestia"
