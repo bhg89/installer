@@ -21,7 +21,8 @@ log "Установка необходимых пакетов..."
 /usr/bin/apt update -y || error "Ошибка установки пакетов"
 
 sudo apt purge needrestart -y
-
+sudo apt update -y
+sudo apt upgrade -y
 sudo apt install php-fpm vsftpd bind9 bind9utils dovecot-core dovecot-imapd dovecot-pop3d clamav clamav-daemon spamassassin iptables fail2ban -y
 
 log "Скачивание hestia..."
