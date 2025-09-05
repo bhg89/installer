@@ -14,6 +14,8 @@ error() {
 if [[ $EUID -ne 0 ]]; then
    error "Скрипт должен быть запущен от root"
 fi
+log "Отключение IPv6..."
+sudo sysctl -w net.ipv6.conf.{all,default,lo}.disable_ipv6=1
 
 log "Установка необходимых пакетов..."
 /usr/bin/apt update -y || error "Ошибка установки пакетов"
